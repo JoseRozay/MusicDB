@@ -1,7 +1,7 @@
 <?php
 
 	$conn = new mysqli();
-	mysqli_select_ab('music nigga bet')
+	mysqli_select_ab('MusicDB')
 
 	if($conn -> connect_error){
 		die("Connection failed: ". $conn-> connect_error);
