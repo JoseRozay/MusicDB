@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2016 at 09:46 PM
+-- Generation Time: Dec 13, 2016 at 10:10 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -19,6 +19,123 @@ SET time_zone = "+00:00";
 --
 -- Database: `musicdb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `album`
+--
+
+CREATE TABLE `album` (
+  `albumID` int(11) NOT NULL,
+  `name` varchar(32) DEFAULT NULL,
+  `trackCount` int(11) DEFAULT NULL,
+  `releaseDate` char(11) DEFAULT NULL,
+  `playtime` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `album`
+--
+
+INSERT INTO `album` (`albumID`, `name`, `trackCount`, `releaseDate`, `playtime`) VALUES
+(1, 'The College Dropout', 21, 'Feb-10-2014', 4573),
+(2, 'Late Registration', 22, 'Aug-30-2005', 4226),
+(3, 'Led Zeppelin', 9, 'Jan-12-1969', 2692),
+(4, 'Led Zeppelin II', 9, 'Oct-22-1960', 2498),
+(5, 'Good Kid M.A.A.D City', 12, 'Oct-22-1960', 2498),
+(6, 'Bitches Brew', 6, 'Mar-30-1970', 5651),
+(7, 'Blue Period', 3, 'Oct-05-1951', 1133),
+(8, 'Views', 20, 'Apr-29-2016', 4875),
+(9, 'Britney', 12, 'Nov-05-2001', 2376),
+(10, 'The Dark Side of the Moon', 10, 'Mar-01-1973', 2569),
+(11, 'Discovery', 14, 'Feb-26-2001', 3620),
+(12, 'Richard D. James Album', 10, 'Nov-04-1996', 1971);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `artist`
+--
+
+CREATE TABLE `artist` (
+  `artistID` int(11) NOT NULL,
+  `currentLabelID` int(11) DEFAULT NULL,
+  `artisticName` varchar(16) DEFAULT NULL,
+  `firstName` varchar(12) DEFAULT NULL,
+  `lastName` varchar(12) DEFAULT NULL,
+  `dob` char(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `artist`
+--
+
+INSERT INTO `artist` (`artistID`, `currentLabelID`, `artisticName`, `firstName`, `lastName`, `dob`) VALUES
+(1, 6, 'Kanye West', 'Kanye', 'West', 'Jun-08-1977'),
+(2, 7, 'Kendrick Lamar', 'Kendrick', 'Duckworth', 'Jun-17-1987'),
+(3, 2, 'Miles Davis', 'Miles', 'Davis', 'May-26-1926'),
+(4, 3, 'Britney Spears', 'Britney', 'Spears', 'Dec-02-1981'),
+(5, 4, 'Aphex Twin', 'Richard', 'James', 'Aug-18-1971'),
+(6, 2, 'Daft Punk', 'Thomas', 'Bangalter', 'Jan-03-1975'),
+(7, 2, 'Daft Punk', 'Guy-Manuel', 'Homen-Christ', 'Feb-08-1974'),
+(8, 2, 'Pink Floyd', 'David', 'Gilmour', 'Mar-06-1946'),
+(9, 2, 'Pink Floyd', 'Roger', 'Waters', 'Sep-06-1943'),
+(10, 2, 'Pink Floyd', 'Syd', 'Barrett', 'Jan-06-1946'),
+(11, 2, 'Pink Floyd', 'Richard', 'Wright', 'Jul-28-1943'),
+(12, 2, 'Pink Floyd', 'Nick', 'Mason', 'Jan-27-1944'),
+(13, 1, 'Led Zeppelin', 'Robert', 'Plant', 'Aug-20-1948'),
+(14, 1, 'Led Zeppelin', 'James', 'Patrick', 'Jan-09-1944'),
+(15, 1, 'Led Zeppelin', 'John', 'Bonham', 'May-31-1948'),
+(16, 1, 'Led Zeppelin', 'John', 'Baldwin', 'Jan-03-1946');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `genre`
+--
+
+CREATE TABLE `genre` (
+  `genreID` int(11) NOT NULL,
+  `name` varchar(12) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `genre`
+--
+
+INSERT INTO `genre` (`genreID`, `name`, `description`) VALUES
+(1, 'HipHop', 'Stylized rhythmic music that commonly accompanies rapping, a rhythmic and rhyming speech that is chanted.'),
+(2, 'Rock', 'Centered on the electric guitar, usually as part of a rock group with electric bass guitar and drums.'),
+(3, 'Jazz', 'Characterized by swing and blue notes, call and response vocals, polyrhythms and improvisation.'),
+(4, 'Pop', 'Popular music that originated in its modern form in the Western world during the 1950s and 1960s'),
+(5, 'Electronic', 'Produced for playback by disc jockeys (DJs) who create seamless selections of tracks, called a mix, by segueing from one recording to another');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `label`
+--
+
+CREATE TABLE `label` (
+  `labelID` int(11) NOT NULL,
+  `name` varchar(24) DEFAULT NULL,
+  `establishDate` char(4) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `label`
+--
+
+INSERT INTO `label` (`labelID`, `name`, `establishDate`) VALUES
+(1, 'Atlantic Records', '1947'),
+(2, 'Columbia', '1887'),
+(3, 'RCA', '1919'),
+(4, 'Warp', '1989'),
+(5, '‘Cash Money Record', '1991'),
+(6, 'GOOD Music', '2004'),
+(7, 'Top Dawg Entertainment', '2004');
 
 -- --------------------------------------------------------
 
@@ -83,6 +200,30 @@ INSERT INTO `song` (`songID`, `albumNameID`, `artistName`, `labelNameID`, `genre
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `album`
+--
+ALTER TABLE `album`
+  ADD PRIMARY KEY (`albumID`);
+
+--
+-- Indexes for table `artist`
+--
+ALTER TABLE `artist`
+  ADD PRIMARY KEY (`artistID`);
+
+--
+-- Indexes for table `genre`
+--
+ALTER TABLE `genre`
+  ADD PRIMARY KEY (`genreID`);
+
+--
+-- Indexes for table `label`
+--
+ALTER TABLE `label`
+  ADD PRIMARY KEY (`labelID`);
 
 --
 -- Indexes for table `song`
