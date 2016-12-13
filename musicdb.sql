@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2016 at 06:49 PM
+-- Generation Time: Dec 13, 2016 at 08:03 PM
 -- Server version: 10.1.19-MariaDB
--- PHP Version: 7.0.13
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -60,7 +60,7 @@ INSERT INTO `album` (`albumID`, `name`, `trackCount`, `releaseDate`, `playtime`)
 
 CREATE TABLE `artist` (
   `artistID` int(11) NOT NULL,
-  `currentLabel` int(11) DEFAULT NULL,
+  `currentLabel` varchar(24) DEFAULT NULL,
   `artisticName` varchar(16) DEFAULT NULL,
   `firstName` varchar(12) DEFAULT NULL,
   `lastName` varchar(12) DEFAULT NULL,
@@ -72,22 +72,22 @@ CREATE TABLE `artist` (
 --
 
 INSERT INTO `artist` (`artistID`, `currentLabel`, `artisticName`, `firstName`, `lastName`, `dob`) VALUES
-(1, 0, 'Kanye West', 'Kanye', 'West', 'Jun-08-1977'),
-(2, 0, 'Kendrick Lamar', 'Kendrick', 'Duckworth', 'Jun-17-1987'),
-(3, 0, 'Miles Davis', 'Miles', 'Davis', 'May-26-1926'),
-(4, 0, 'Britney Spears', 'Britney', 'Spears', 'Dec-02-1981'),
-(5, 0, 'Aphex Twin', 'Richard', 'James', 'Aug-18-1971'),
-(6, 0, 'Daft Punk', 'Thomas', 'Bangalter', 'Jan-03-1975'),
-(7, 0, 'Daft Punk', 'Guy-Manuel', 'Homen-Christ', 'Feb-08-1974'),
-(8, 0, 'Pink Floyd', 'David', 'Gilmour', 'Mar-06-1946'),
-(9, 0, 'Pink Floyd', 'Roger', 'Waters', 'Sep-06-1943'),
-(10, 0, 'Pink Floyd', 'Syd', 'Barrett', 'Jan-06-1946'),
-(11, 0, 'Pink Floyd', 'Richard', 'Wright', 'Jul-28-1943'),
-(12, 0, 'Pink Floyd', 'Nick', 'Mason', 'Jan-27-1944'),
-(13, 0, 'Led Zeppelin', 'Robert', 'Plant', 'Aug-20-1948'),
-(14, 0, 'Led Zeppelin', 'James', 'Patrick', 'Jan-09-1944'),
-(15, 0, 'Led Zeppelin', 'John', 'Bonham', 'May-31-1948'),
-(16, 0, 'Led Zeppelin', 'John', 'Baldwin', 'Jan-03-1946');
+(1, 'GOOD Music', 'Kanye West', 'Kanye', 'West', 'Jun-08-1977'),
+(2, 'Top Dawg Entertainment', 'Kendrick Lamar', 'Kendrick', 'Duckworth', 'Jun-17-1987'),
+(3, 'Columbia', 'Miles Davis', 'Miles', 'Davis', 'May-26-1926'),
+(4, 'RCA', 'Britney Spears', 'Britney', 'Spears', 'Dec-02-1981'),
+(5, 'Warp', 'Aphex Twin', 'Richard', 'James', 'Aug-18-1971'),
+(6, 'Columbia', 'Daft Punk', 'Thomas', 'Bangalter', 'Jan-03-1975'),
+(7, 'Columbia', 'Daft Punk', 'Guy-Manuel', 'Homen-Christ', 'Feb-08-1974'),
+(8, 'Columbia', 'Pink Floyd', 'David', 'Gilmour', 'Mar-06-1946'),
+(9, 'Columbia', 'Pink Floyd', 'Roger', 'Waters', 'Sep-06-1943'),
+(10, 'Columbia', 'Pink Floyd', 'Syd', 'Barrett', 'Jan-06-1946'),
+(11, 'Columbia', 'Pink Floyd', 'Richard', 'Wright', 'Jul-28-1943'),
+(12, 'Columbia', 'Pink Floyd', 'Nick', 'Mason', 'Jan-27-1944'),
+(13, 'Atlantic Records', 'Led Zeppelin', 'Robert', 'Plant', 'Aug-20-1948'),
+(14, 'Atlantic Records', 'Led Zeppelin', 'James', 'Patrick', 'Jan-09-1944'),
+(15, 'Atlantic Records', 'Led Zeppelin', 'John', 'Bonham', 'May-31-1948'),
+(16, 'Atlantic Records', 'Led Zeppelin', 'John', 'Baldwin', 'Jan-03-1946');
 
 -- --------------------------------------------------------
 
