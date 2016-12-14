@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2016 at 10:10 PM
+-- Generation Time: Dec 14, 2016 at 07:16 AM
 -- Server version: 10.1.19-MariaDB
--- PHP Version: 5.6.28
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -176,7 +176,7 @@ INSERT INTO `song` (`songID`, `albumNameID`, `artistName`, `labelNameID`, `genre
 (15, 5, 'Kendrick Lamar', 7, 1, 'Swimming Pools', 313, NULL),
 (16, 5, 'Kendrick Lamar', 7, 1, 'Money Trees', 386, 'Jayrock'),
 (17, 6, 'Miles Davis', 2, 3, 'Miles Runs the Voodoo Down', 844, NULL),
-(18, 6, 'Miles Davis', 3, 2, 'Pharaohs Dance', 1200, NULL),
+(18, 6, 'Miles Davis', 2, 3, 'Pharaohs Dance', 1200, NULL),
 (19, 6, 'Miles Davis', 2, 3, 'Spanish Keys', 1049, NULL),
 (20, 7, 'Miles Davis', 2, 3, 'Bluing', 595, NULL),
 (21, 7, 'Miles Davis', 2, 3, 'Blue Room', 168, NULL),
