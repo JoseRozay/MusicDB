@@ -27,7 +27,6 @@
 	
 	if($result->num_rows > 0){
 		//output data
-		echo $albumname;
 		while($row = $result->fetch_assoc()){
 			echo " ".$row["aname"]." <br>Artist: ".$row["artistName"]."<br>Release date: ".$row["releaseDate"]."<br>Genre: ".$row["gname"]."<br>Track count: ".$row["trackCount"]." <br>Playtime (in seconds):".$row["playtime"]."<br><br>";
 		}
