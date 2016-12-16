@@ -77,4 +77,4 @@
 </body>
 </html>
 
- <p>Enter names into search bar accordingly, only one search bar at a time to get best results. <br> Entering no data into search bar will show all data that can be searched. <br> Entering partial data will cause multiple results to show up </p>
+ <p>Enter names into search bar accordingly, full names for best results. One search bar at a time <br> Entering no data into search bar will show all data that can be searched. <br> Entering partial data will cause multiple results to show up </p>
