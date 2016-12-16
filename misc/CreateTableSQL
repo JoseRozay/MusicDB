@@ -1,5 +1,0 @@
-CREATE TABLE Genre (genreID int primary key, name varchar(12), description varchar(255)).
-CREATE TABLE Label (labelID int primary key, name varchar(24), establishDate date).
-CREATE TABLE Album (albumID int primary key, name varchar(32), trackCount int, releaseDate date, playtime int).
-CREATE TABLE Artist (artistID int primary key, currentLabel int, artisticName varchar(16), firstName varchar(12), lastName varchar(12), dob date).
-CREATE TABLE Song (songID int primary key, albumID int, artistID int, labelID int, genreID int, songName varchar(40), length int, contributingArtists varchar(255)).
