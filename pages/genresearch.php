@@ -1,3 +1,4 @@
+<body style="background-color:lightgrey">
 <?php
 	$servername = "localhost";
 	$username = "root";
@@ -16,7 +17,7 @@
 	}
 
 	//sql statement for getting the data
-	$sql = "SELECT name, description FROM genre WHERE genre.name LIKE '%".$genrename."%'";
+	$sql = "SELECT gname, description FROM genre WHERE genre.gname LIKE '%".$genrename."%'";
 
 	$result = $conn->query($sql);
 ;
@@ -28,24 +29,23 @@
 	
 	if($result->num_rows > 0){
 		//output data
-		echo $genrename;
-		$row = $result->fetch_assoc();
-		echo "<br>Description: ";
-		echo $row["description"];
-		
-		$sql2 = "SELECT DISTINCT album.name FROM song, album, genre WHERE genre.name LIKE '%".$genrename."%' AND song.genreNameID = genre.genreID AND song.albumNameID = album.albumID";
+		//echo $genrename;
+		while($row = $result->fetch_assoc()){
+		echo " ".$row["gname"].": <br> Description: ".$row["description"]."<br>";
+		}
+			$sql2 = "SELECT DISTINCT album.aname FROM song, album, genre WHERE genre.gname LIKE '%".$genrename."%' AND song.genreNameID = genre.genreID AND song.albumNameID = album.albumID";
 			
 		$result2 = $conn->query($sql2);
 		if(!$result2){
 			trigger_error('Invalid query: ' . $conn->error);
 		}
 		
-		echo "<br><br>Albums in DB under genre: <br>";	
+		echo "<br>Albums in DB under genre(s): <br>";	
 		while($row2 = $result2->fetch_assoc()){
-		echo $row2["name"];
-		echo ", ";
+		echo " ".$row2["aname"].", ";
 		}
 	}else{
 		echo "No results";
 	}
 ?>
+</body>

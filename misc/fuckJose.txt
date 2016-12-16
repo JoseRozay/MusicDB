@@ -1,9 +1,0 @@
-Artist
-SELECT DISTINCT currentLabel, firstName, lastName, dob, albumName, songName FROM `artist`, song WHERE artisticName = 'Daft Punk' AND song.artistName = 'Daft Punk'
-
-
-Album
-SELECT album.name, album.trackCount, album.releaseDate, album.playtime, song.artistName, song.songName, song.labelName FROM album INNER JOIN song ON song.albumName = album.name WHERE album.name = 'Britney'
-
-
-

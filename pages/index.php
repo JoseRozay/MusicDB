@@ -5,9 +5,9 @@
 <head>
 <title>Page Title</title>
 </head>
-<body>
+<body style="background-color:lightgrey">
 
-<center><header>MusicDB</header></center><br>
+<center><header1><b>MusicDB<b></header1></center>
 <div style="float:left; width:50%;">
 
     <form name="search" action="artistsearch.php" method="post">
@@ -71,8 +71,10 @@
 </form>
 
 </div>
-
+</div>
 
 
 </body>
 </html>
+
+ <p>Enter names into search bar accordingly, only one search bar at a time to get best results. <br> Entering no data into search bar will show all data that can be searched. <br> Entering partial data will cause multiple results to show up </p>

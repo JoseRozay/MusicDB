@@ -1,3 +1,4 @@
+<body style="background-color:lightgrey">
 <?php
 	
 	$servername = "localhost";
@@ -18,7 +19,7 @@
 	}
 
 	//sql statement for getting the data
-	$sql = "SELECT label.name, label.establishDate, artist.artisticName FROM label JOIN artist ON artist.currentLabelID = label.labelID WHERE label.name LIKE '%".$labelname."%' GROUP BY artist.artisticName";
+	$sql = "SELECT label.lname, label.establishDate, artist.artisticName FROM label JOIN artist ON artist.currentLabelID = label.labelID WHERE label.lname LIKE '%".$labelname."%' GROUP BY artist.artisticName";
 
 	$result = $conn->query($sql);
 
@@ -29,15 +30,11 @@
 
 	if($result->num_rows > 0){
 		//output data
-		echo $labelname;
-		$row = $result->fetch_assoc();
-		echo "<br>Establish date: "; 
-		echo $row["establishDate"];//Print stuff out from  
-		
-		$sql2 = "SELECT artist.artisticName FROM label JOIN artist ON artist.currentLabelID = label.labelID WHERE label.name LIKE '%".$labelname."%' GROUP BY artist.artisticName";
-
+		while($row = $result->fetch_assoc()){
+		echo " ".$row["lname"].", Establish date: ".$row["establishDate"]."<br>";
+		}
+		$sql2 = "SELECT artist.artisticName FROM label JOIN artist ON artist.currentLabelID = label.labelID WHERE label.lname LIKE '%".$labelname."%' GROUP BY artist.artisticName";
 		$result2 = $conn->query($sql2);
-
 		//Testing if the result worked properly
 		if(!$result2){
 			trigger_error('Invalid query: ' . $conn->error);
@@ -47,12 +44,12 @@
 			//output data
 			echo "<br>";
 			while($row2 = $result2->fetch_assoc()){
-				echo "Artists: ";
-				echo $row2["artisticName"];
-				echo ", ";
+				echo "Artists: ".$row2["artisticName"].", <br>";
 			}
 		}
+		
 	}else{
 		echo "No results";
 	}
   ?>
+  </body>

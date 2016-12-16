@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2016 at 07:16 AM
+-- Generation Time: Dec 16, 2016 at 04:11 AM
 -- Server version: 10.1.19-MariaDB
--- PHP Version: 7.0.13
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `album` (
   `albumID` int(11) NOT NULL,
-  `name` varchar(32) DEFAULT NULL,
+  `aname` varchar(32) DEFAULT NULL,
   `trackCount` int(11) DEFAULT NULL,
   `releaseDate` char(11) DEFAULT NULL,
   `playtime` int(11) DEFAULT NULL
@@ -38,11 +38,11 @@ CREATE TABLE `album` (
 -- Dumping data for table `album`
 --
 
-INSERT INTO `album` (`albumID`, `name`, `trackCount`, `releaseDate`, `playtime`) VALUES
+INSERT INTO `album` (`albumID`, `aname`, `trackCount`, `releaseDate`, `playtime`) VALUES
 (1, 'The College Dropout', 21, 'Feb-10-2014', 4573),
 (2, 'Late Registration', 22, 'Aug-30-2005', 4226),
 (3, 'Led Zeppelin', 9, 'Jan-12-1969', 2692),
-(4, 'Led Zeppelin II', 9, 'Oct-22-1960', 2498),
+(4, 'To Pimp a Butterfly', 16, 'Mar-15-2015', 4731),
 (5, 'Good Kid M.A.A.D City', 12, 'Oct-22-1960', 2498),
 (6, 'Bitches Brew', 6, 'Mar-30-1970', 5651),
 (7, 'Blue Period', 3, 'Oct-05-1951', 1133),
@@ -97,7 +97,7 @@ INSERT INTO `artist` (`artistID`, `currentLabelID`, `artisticName`, `firstName`,
 
 CREATE TABLE `genre` (
   `genreID` int(11) NOT NULL,
-  `name` varchar(12) DEFAULT NULL,
+  `gname` varchar(12) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -105,7 +105,7 @@ CREATE TABLE `genre` (
 -- Dumping data for table `genre`
 --
 
-INSERT INTO `genre` (`genreID`, `name`, `description`) VALUES
+INSERT INTO `genre` (`genreID`, `gname`, `description`) VALUES
 (1, 'HipHop', 'Stylized rhythmic music that commonly accompanies rapping, a rhythmic and rhyming speech that is chanted.'),
 (2, 'Rock', 'Centered on the electric guitar, usually as part of a rock group with electric bass guitar and drums.'),
 (3, 'Jazz', 'Characterized by swing and blue notes, call and response vocals, polyrhythms and improvisation.'),
@@ -120,7 +120,7 @@ INSERT INTO `genre` (`genreID`, `name`, `description`) VALUES
 
 CREATE TABLE `label` (
   `labelID` int(11) NOT NULL,
-  `name` varchar(24) DEFAULT NULL,
+  `lname` varchar(24) DEFAULT NULL,
   `establishDate` char(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -128,12 +128,12 @@ CREATE TABLE `label` (
 -- Dumping data for table `label`
 --
 
-INSERT INTO `label` (`labelID`, `name`, `establishDate`) VALUES
+INSERT INTO `label` (`labelID`, `lname`, `establishDate`) VALUES
 (1, 'Atlantic Records', '1947'),
 (2, 'Columbia', '1887'),
 (3, 'RCA', '1919'),
 (4, 'Warp', '1989'),
-(5, '‘Cash Money Record', '1991'),
+(5, 'Cash Money Record', '1991'),
 (6, 'GOOD Music', '2004'),
 (7, 'Top Dawg Entertainment', '2004');
 
@@ -169,9 +169,9 @@ INSERT INTO `song` (`songID`, `albumNameID`, `artistName`, `labelNameID`, `genre
 (8, 3, 'Led Zeppelin', 1, 2, 'Dazed and Confused', 388, NULL),
 (9, 3, 'Led Zeppelin', 1, 2, 'Communication Break Down', 150, NULL),
 (10, 3, 'Led Zeppelin', 1, 2, 'Good Times Bad Times', 166, NULL),
-(11, 4, 'Led Zeppelin', 1, 2, 'Whole lotta love', 334, NULL),
-(12, 4, 'Led Zeppelin', 1, 2, 'Heartbreaker', 254, NULL),
-(13, 4, 'Led Zeppelin', 1, 2, 'Moby Dick', 260, NULL),
+(11, 4, 'Kendrick Lamar', 7, 1, 'Alright', 217, NULL),
+(12, 4, 'Kendrick Lamar', 7, 1, 'Mortal Man', 727, NULL),
+(13, 4, 'Kendrick Lamar', 7, 1, 'Momma', 283, NULL),
 (14, 5, 'Kendrick Lamar', 7, 1, 'M.A.A.D City', 350, 'MM Eiht'),
 (15, 5, 'Kendrick Lamar', 7, 1, 'Swimming Pools', 313, NULL),
 (16, 5, 'Kendrick Lamar', 7, 1, 'Money Trees', 386, 'Jayrock'),

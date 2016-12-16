@@ -1,3 +1,4 @@
+	<body style="background-color:lightgrey">
 	<?php
 	
 	$servername = "localhost";
@@ -11,14 +12,12 @@
 		die("Connection failed: ". $conn-> connect_error);
 	}
 
-
 	//Set variable from index.php
 	if(isset($_POST["albumname"])){
 			$albumname = $_POST["albumname"];
 	}
 	//sql statement for getting the data
-	$sql = "SELECT album.name, genre.name, trackCount, releaseDate, playtime, song.artistName FROM album, song, genre WHERE song.albumNameID = albumID AND album.name LIKE '%".$albumname."%' AND song.genreNameID = genre.genreID GROUP BY album.name";
-
+	$sql = "SELECT album.aname, genre.gname, trackCount, releaseDate, playtime, song.artistName FROM album, song, genre WHERE song.albumNameID = albumID AND album.aname LIKE '%".$albumname."%' AND song.genreNameID = genre.genreID GROUP BY album.aname";
 	$result = $conn->query($sql);
 
 	//Testing if the result worked properly
@@ -30,18 +29,10 @@
 		//output data
 		echo $albumname;
 		while($row = $result->fetch_assoc()){
-			echo "<br>Artist: ";
-			echo $row["artistName"];
-			echo "<br>Release date: ";
-			echo $row["releaseDate"];
-			echo "<br>Genre: ";
-			echo $row["name"];
-			echo "<br>Track count: ";
-			echo $row["trackCount"];
-			echo "<br>Playtime (in seconds): ";
-			echo $row["playtime"];
+			echo " ".$row["aname"]." <br>Artist: ".$row["artistName"]."<br>Release date: ".$row["releaseDate"]."<br>Genre: ".$row["gname"]."<br>Track count: ".$row["trackCount"]." <br>Playtime (in seconds):".$row["playtime"]."<br><br>";
 		}
 	}else{
 		echo "No results";
 	}
   ?>
+  </body>
